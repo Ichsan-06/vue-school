@@ -116,6 +116,19 @@ export const constantRouterMap = [
         meta: { title: 'library', icon: 'guide', noCache: true }
       }
     ]
+  },
+  {
+    path: '/elearning',
+    component: Layout,
+    redirect: '/elearning/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/library/index'),
+        name: 'E-Learning',
+        meta: { title: 'E-Learning', icon: 'guide', noCache: true }
+      }
+    ]
   }
 ]
 

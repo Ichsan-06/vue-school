@@ -1,4 +1,5 @@
 import Auth from '@/service/Auth'
+import { setToken } from '@/utils/auth'
 
 const user = JSON.parse(localStorage.getItem('user'))
 const initialState = user ? { status: { loggedIn: true }, user } : { status: { loggedIn: false }, user: null }
@@ -15,6 +16,8 @@ const app = {
       return Auth.login(user).then(
         user => {
           commit('saveSession', user)
+          commit('SET_TOKEN', 'admin')
+          setToken('admin')
           return Promise.resolve(user)
         },
         error => {
