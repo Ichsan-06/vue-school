@@ -13,6 +13,7 @@ import tableRouter from './modules/table'
 import nestedRouter from './modules/nested'
 import locationRouter from './modules/location'
 import LibrarySettingRouter from './modules/setting'
+import ElearningRouter from './modules/elearning'
 
 /** note: Submenu only appear when children.length>=1
  *  detail see  https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
@@ -116,19 +117,6 @@ export const constantRouterMap = [
         meta: { title: 'library', icon: 'guide', noCache: true }
       }
     ]
-  },
-  {
-    path: '/elearning',
-    component: Layout,
-    redirect: '/elearning/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/library/index'),
-        name: 'E-Learning',
-        meta: { title: 'E-Learning', icon: 'guide', noCache: true }
-      }
-    ]
   }
 ]
 
@@ -191,6 +179,7 @@ export const asyncRouterMap = [
   nestedRouter,
   tableRouter,
   LibrarySettingRouter,
+  ElearningRouter,
 
   {
     path: '/example',
